@@ -1,16 +1,18 @@
+import fs from 'fs';
 
 
-// intento para pintar en pantalla
-import * as fs from 'fs';
-import * as path from 'path';
+let outputMessage = '';
+const base = 5;
+const headerMessage = `
+========================================
+Tabla de multiplicar ${base}
+========================================\n
+`;
 
-const filePath = path.join(__dirname, '../outputs/tabla-1.txt');
+for(let i = 1; i <= 10; i++) {
+  outputMessage += `${i} * ${base} = ${i * base}\n`;
+}
 
-fs.readFile(filePath, 'utf8', (err, data) => {
-  if (err){
-    console.error('Error al leer el archivo:', err);
-    return;
-  }
+console.log( headerMessage + outputMessage );
 
-    console.log('Contenido del archivo:', data);
-});
+fs.writeFileSync(`outputs/table-multiplication-${base}.txt`, outputMessage);
