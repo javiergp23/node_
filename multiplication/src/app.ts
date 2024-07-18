@@ -14,5 +14,7 @@ for(let i = 1; i <= 10; i++) {
 }
 
 console.log( headerMessage + outputMessage );
+const ooutputPath = `outputs`;
 
-fs.writeFileSync(`outputs/table-multiplication-${base}.txt`, outputMessage);
+
+fs.writeFileSync(`${ooutputPath}/table-multiplication-${base}.txt`, outputMessage);
